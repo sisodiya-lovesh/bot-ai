@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ChatBot from './components/ChatBot';
+import PastConversations from './components/PastConversations';
+import FeedbackSummary from './components/FeedbackSummary';
+import { Box, Button, Container } from '@mui/material';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [conversations, setConversations] = useState([]);
+  const [selectedConversation, setSelectedConversation] = useState(null);
+  const [view, setView] = useState('chat');
+
+  const addConversation = (chat) => {
+    setConversations([...conversations, chat]);
+  };
+
+  const selectConversation = (index) => {
+    setSelectedConversation(conversations[index]);
+    setView('chat');
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="app-container">
+       <Box className="parent-container">
+       <Box className="sidebar">
+        <Button variant="contained" onClick={() => setView('chat')}>New Chat</Button>
+        <PastConversations conversations={conversations} selectConversation={selectConversation} />
+        <Button variant="contained" onClick={() => setView('feedback')}>Feedback Summary</Button>
+      </Box>
+      <Box className="main-content">
+        {view === 'chat' ? (
+          <ChatBot addConversation={addConversation} />
+        ) : (
+          <FeedbackSummary conversations={conversations} />
+        )}
+      </Box>
+      </Box>
+    </Container>
   );
-}
+};
 
 export default App;

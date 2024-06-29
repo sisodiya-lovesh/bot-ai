@@ -1,0 +1,71 @@
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e3d1f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    margin: 0 auto;
+    height: 100vh;
+  }
+  
+  .header {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #3f2e64;
+  }
+  
+  .icon-container {
+    margin-bottom: 20px;
+  }
+  
+  .bot-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .suggestion-card {
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .suggestion-card:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .input-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6c5b7b;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #5a4a69;
+  }
+  
